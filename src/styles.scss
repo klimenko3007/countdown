@@ -1,8 +1,5 @@
 @use '@angular/material' as mat;
 
-// Import the font
-@import url('https://fonts.googleapis.com/css2?family=Open+Sauce+One&display=swap');
-
 // Define your custom typography
 $custom-typography: mat.define-typography-config(
   $font-family: 'Open Sauce One, sans-serif',
