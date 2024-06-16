@@ -1,2 +1,7 @@
-<p>Time to {{ (data$ | async)?.name }}</p>
-<p>{{ timeLeft$ | async }}</p>
+<div class="text-container">
+  <app-fullscreen-text-fitter
+    [text]="'Time to ' + ((data$ | async)?.name ?? '')"
+    [textStyle]="{ color: '#72035D', fontWeight: 800 }"
+  ></app-fullscreen-text-fitter
+  ><app-fullscreen-text-fitter [text]="(timeLeft$ | async) ?? ''"></app-fullscreen-text-fitter>
+</div>

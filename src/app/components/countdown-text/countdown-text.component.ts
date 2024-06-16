@@ -3,11 +3,12 @@ import { FormDataLocalStorageService } from '../../services/form-data-local-stor
 import { CommonModule } from '@angular/common'
 import { combineLatest, interval, map, startWith } from 'rxjs'
 import { formatTimeLeft } from '../../utils/functions'
+import { FullscreenTextFitterComponent } from '../fullscreen-text-fitter/fullscreen-text-fitter.component'
 
 @Component({
   selector: 'app-countdown-text',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FullscreenTextFitterComponent],
   templateUrl: './countdown-text.component.html',
   styleUrl: './countdown-text.component.scss',
 })
