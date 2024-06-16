@@ -1,13 +1,15 @@
 
 main {
-  width: 100%;
-  min-height: 100vh;
+  width: calc(100vw - 24px);
+  min-height: calc(100vh - 24px);
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   flex-direction: column;
   background-color: #F5F3F3;
+  padding: 12px;
+  gap: 20px;
 
   h1 {
     font-size: 6rem;
