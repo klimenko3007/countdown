@@ -1,10 +1,14 @@
-<form class="form" [formGroup]="eventForm">
+<form class="form" [formGroup]="eventForm" (ngSubmit)="onBlur()">
   <mat-form-field appearance="outline">
     <mat-label>Title</mat-label>
     <input matInput type="text" formControlName="eventName" (blur)="onBlur()" />
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Date</mat-label>
-    <input matInput type="date" formControlName="eventDate" (blur)="onBlur()" />
+    <input matInput type="datetime-local" formControlName="eventDate" (blur)="onBlur()" />
   </mat-form-field>
 </form>
+<p *ngIf="this.eventForm.errors?.['allFieldsRequired']" class="info-message">
+  <span class="info-icon">i</span>
+  <span class="info-text">Please add both the name of the event and date</span>
+</p>

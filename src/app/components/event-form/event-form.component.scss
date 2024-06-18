@@ -6,3 +6,26 @@
     flex-direction: row;
   }
 }
+
+.info-message {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  .info-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(153, 153, 226);
+    color: white;
+    font-size: 14px;
+  }
+
+  .info-text {
+    font-size: 14px;
+    color: rgb(107, 106, 106);
+  }
+}
