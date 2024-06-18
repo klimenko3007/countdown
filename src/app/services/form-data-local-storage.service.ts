@@ -6,10 +6,10 @@ import { BehaviorSubject } from 'rxjs'
 })
 export class FormDataLocalStorageService {
   private _storageKey = 'eventFormData'
-  private _formData = new BehaviorSubject<{ name: string; date: string }>({
-    name: this.getFormData().name || '',
-    date: this.getFormData().date || '',
-  })
+  private _initialEventName = 'Tomorrow'
+  private _initialEventDate = this.getTomorrowDate()
+  private _initialFormData = this.getFormData()
+  private _formData = new BehaviorSubject<{ name: string; date: string }>(this._initialFormData)
 
   public formData$ = this._formData.asObservable()
 
@@ -21,7 +21,26 @@ export class FormDataLocalStorageService {
   }
 
   public getFormData(): { name: string; date: string } {
-    return JSON.parse(localStorage.getItem(this._storageKey) || '{}')
+    const defaultFormData = { name: this._initialEventName, date: this._initialEventDate }
+    const storedItem = localStorage.getItem(this._storageKey)
+    if (!storedItem) {
+      return defaultFormData
+    }
+    try {
+      const parsedItem = JSON.parse(storedItem)
+      return {
+        name: parsedItem.name || defaultFormData.name,
+        date: parsedItem.date || defaultFormData.date,
+      }
+    } catch (e) {
+      console.error('Error parsing JSON from localStorage', e)
+      return defaultFormData
+    }
+  }
+  private getTomorrowDate(): string {
+    const tomorrow = new Date()
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    return tomorrow.toISOString().split('T')[0]
   }
 
   public clearFormData() {
