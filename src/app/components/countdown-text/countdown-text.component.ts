@@ -1,8 +1,8 @@
 import { Component } from '@angular/core'
 import { FormDataLocalStorageService } from '../../services/form-data-local-storage.service'
 import { CommonModule } from '@angular/common'
-import { combineLatest, interval, map, startWith } from 'rxjs'
-import { formatTimeLeft } from '../../utils/functions'
+import { Subject, filter, interval, map, startWith, switchMap, takeUntil } from 'rxjs'
+import { eventDoneMessage, formatTimeLeft } from '../../utils/functions'
 import { FullscreenTextFitterComponent } from '../fullscreen-text-fitter/fullscreen-text-fitter.component'
 
 @Component({
@@ -14,14 +14,35 @@ import { FullscreenTextFitterComponent } from '../fullscreen-text-fitter/fullscr
 })
 export class CountdownTextComponent {
   public readonly data$ = this.formDataLocalStorageService.formData$
-  private interval$ = interval(1000).pipe(startWith(0))
+  private destroy$ = new Subject<void>()
 
-  public readonly timeLeft$ = combineLatest([this.data$, this.interval$]).pipe(
-    map(([data, _]) => {
+  public readonly timeLeft$ = this.data$.pipe(
+    switchMap(data => {
       const eventDate = new Date(data.date)
-      return formatTimeLeft(eventDate)
+      const currentDate = new Date()
+
+      if (eventDate <= currentDate) {
+        return [eventDoneMessage]
+      }
+      return interval(1000).pipe(
+        startWith(0),
+        map(() => {
+          const currentTime = new Date()
+          if (currentTime >= eventDate) {
+            return eventDoneMessage
+          }
+          return formatTimeLeft(eventDate)
+        }),
+        filter(timeLeft => timeLeft !== eventDoneMessage),
+        takeUntil(this.destroy$),
+      )
     }),
   )
 
   constructor(private formDataLocalStorageService: FormDataLocalStorageService) {}
+
+  ngOnDestroy(): void {
+    this.destroy$.next()
+    this.destroy$.complete()
+  }
 }

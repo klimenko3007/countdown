@@ -13,8 +13,6 @@ export class FormDataLocalStorageService {
 
   public formData$ = this._formData.asObservable()
 
-  constructor() {}
-
   public saveFormData(formData: { name: string; date: string }) {
     this._formData.next({ name: formData.name, date: formData.date })
     localStorage.setItem(this._storageKey, JSON.stringify(formData))
@@ -41,9 +39,5 @@ export class FormDataLocalStorageService {
     const tomorrow = new Date()
     tomorrow.setDate(tomorrow.getDate() + 1)
     return tomorrow.toISOString().split('T')[0]
-  }
-
-  public clearFormData() {
-    localStorage.removeItem(this._storageKey)
   }
 }
