@@ -27,7 +27,18 @@ To test the application have a look at
 
 ## Watch a video
 
-To get a quick look at application functionality, watch the video below.
+To get a quick look at application's functionality, watch the videos below.
+
+### Using application for the first time
+
+https://github.com/klimenko3007/countdown/assets/73106885/c3964aa7-9117-4dfa-8536-9b3b6db0535d
+
+### Entering events in the past
+https://github.com/klimenko3007/countdown/assets/73106885/33d97480-12b8-4170-a87a-f5d093021ba3
+
+### Countdown 0 
+https://github.com/klimenko3007/countdown/assets/73106885/affad659-7e16-4c77-9211-c6279a93474a
+
 
 ## Test application locally
 
