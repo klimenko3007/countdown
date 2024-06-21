@@ -1,33 +1,62 @@
-# Description & requirements
+# Countdown App
 
-Your objective in this assignment is to create a countdown app built using this boilerplate (+ any other tools of your choice) that follows the design specifications provided [in this Figma file](https://www.figma.com/file/UPEugUz5jM9IzIkWft2Y9m/NC-challenge). The app should work in portrait as well as in landscape mode while the text displayed on the screen should always fill the whole width of the screen.
+Welcome to the Countdown App! Whether you want to keep track of an important event or put pressure
+on yourself to meet a deadline, this app is for you.
 
-In your app, it should be possible to define the end date and the name of the event taking place on that day. The countdown should always start from the current time and it should display the time remaining to your specified end date in the following format: Days, Hours(h), Minutes(m), Seconds(s) *(e.g., 3 days, 15 h, 20 m, 5 s)*. To make sure the text always covers the entire screen width, it should resize whenever necessary to achieve this objective.
+## Features
 
-The purpose of the solution is to “fit” the input text into an element in one line (no line breaks, filling the whole width) using the maximum possible font-size.
+- **Track Important Events**: Add the date and name of your event, and the app will start a
+  countdown.
+- **Real-Time Updates**: Watch the clock tick down to your specified end date in real-time.
+- **Responsive Design**: The app works seamlessly in both portrait and landscape modes.
 
-Please make sure that your text fit solution is reusable and that the event name, as well as the specified end date, are persisted between page reloads.
+## Countdown Display
 
-**Once you feel ready to share your solution, please:**
+The countdown starts from the current time and displays the time remaining to your specified end
+date in the following format:
 
-- Commit the code to Github or your favorite VCS.
-- Write a simple README.md explaining how to set up the project (assuming it’s read by a developer who is experienced with all the used tools).
-- Include a URL to a deployed working Web page (use netlify.com or github.io or whatever simple hosting tool that works for you).
+- **Days**
+- **Hours (h)**
+- **Minutes (m)**
+- **Seconds (s)**
 
-Please put the resulting project in a public github repository and provide a link to it. Please make it easy for us to test the result.
+## Test application
 
-## Optional goals
+To test the application have a look at
+[Countdown App](https://countdown-to-event-klimenko.netlify.app/)
 
-You’re free to complete this additional goal to get a higher score if you want!
+## Watch a video
 
-1. Write suggestions of how this solution can be improved. Describe what the next steps would be in order for this app to be production ready. 
+To get a quick look at application functionality, watch the video below.
 
-## Running the app
+## Test application locally
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files. 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version
+17.3.6.
 
-## Further help
+### Prerequisites
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
+Before setting up the application, make sure you have the following installed:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- **Node.js**: Version v18.13 or above
+- **Angular CLI**: Version 17.3.6
+
+### Setup Instructions
+
+1. Clone the repository `git clone <repository-url>`
+
+2. Navigate to the project directory `cd <project-folder>`
+3. Install dependencies `npm install`
+4. Run the development server `ng serve`
+5. Open your browser and navigate to `http://localhost:4200/`
+
+## Future Improvements
+
+The app could benefit from further improvements:
+
+1. **Improvement in Design:** Enhance the user interface, including a more prominent submit button.
+2. **Year Handling:** Include the option to display years in the countdown.
+3. **Past Date Handling:** Implement a mechanism to handle cases where the entered date is in the
+   past.
+4. **Empty State:** Design a proper empty state for the application when no events are added.
+5. **Test Coverage:** Increase test coverage to ensure the app is robust and bug-free.
