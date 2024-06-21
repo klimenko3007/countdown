@@ -1,9 +1,15 @@
 <form class="form" [formGroup]="eventForm" (ngSubmit)="onBlur()">
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" floatLabel="always">
     <mat-label>Title</mat-label>
-    <input matInput type="text" formControlName="eventName" (blur)="onBlur()" />
+    <input
+      matInput
+      type="text"
+      formControlName="eventName"
+      (blur)="onBlur()"
+      placeholder="Add event title"
+    />
   </mat-form-field>
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" floatLabel="always">
     <mat-label>Date</mat-label>
     <input matInput type="datetime-local" formControlName="eventDate" (blur)="onBlur()" />
   </mat-form-field>

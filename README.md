@@ -43,8 +43,7 @@ Before setting up the application, make sure you have the following installed:
 
 ### Setup Instructions
 
-1. Clone the repository `git clone <repository-url>`
-
+1. Clone the repository `git clone git@github.com:klimenko3007/countdown.git`
 2. Navigate to the project directory `cd <project-folder>`
 3. Install dependencies `npm install`
 4. Run the development server `ng serve`
@@ -54,9 +53,14 @@ Before setting up the application, make sure you have the following installed:
 
 The app could benefit from further improvements:
 
-1. **Improvement in Design:** Enhance the user interface, including a more prominent submit button.
-2. **Year Handling:** Include the option to display years in the countdown.
-3. **Past Date Handling:** Implement a mechanism to handle cases where the entered date is in the
-   past.
-4. **Empty State:** Design a proper empty state for the application when no events are added.
-5. **Test Coverage:** Increase test coverage to ensure the app is robust and bug-free.
+1. **Improvement in Design:** Enhance the user interface, including a more prominent submit/update
+   button. Updating the title and date on blur is not the most intuitive method.
+2. **Year Handling:** Include the option to display years in the countdown. The specified format
+   currently only includes days and does not calculate years. It would be beneficial to show years,
+   if applicable.
+3. **Past Date Handling:** mplement a better mechanism to handle cases where the entered date is in
+   the past. Currently, it only states that the event has already occurred. A better approach would
+   be to change the message to "Time since...".
+4. **Empty State:** Design a proper empty state for the application when no events are added. The
+   current "default" strings are not the most user-friendly way of handling this situation.
+5. **Test Coverage:** Add test coverage to ensure the app is bug-free.
