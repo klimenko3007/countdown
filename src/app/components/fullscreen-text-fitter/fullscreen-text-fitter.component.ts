@@ -38,13 +38,13 @@ export class FullscreenTextFitterComponent {
   }
 
   private adjustFontSize(): void {
-    let desiredWidth = this.hostElement.nativeElement.getBoundingClientRect().width
-    let currentWidth = this.textElement.nativeElement.clientWidth
-    let currentFontSize = parseFloat(
+    const desiredWidth = this.hostElement.nativeElement.getBoundingClientRect().width
+    const currentWidth = this.textElement.nativeElement.clientWidth
+    const currentFontSize = parseFloat(
       window.getComputedStyle(this.textElement.nativeElement).fontSize,
     )
 
-    let newFontSize = (desiredWidth / currentWidth) * currentFontSize
+    const newFontSize = (desiredWidth / currentWidth) * currentFontSize
 
     this.textElement.nativeElement.style.fontSize = `${newFontSize}px`
   }
