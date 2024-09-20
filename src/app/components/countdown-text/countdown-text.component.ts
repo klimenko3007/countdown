@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common'
 import { Subject, filter, interval, map, startWith, switchMap, takeUntil } from 'rxjs'
 import { eventDoneMessage, formatTimeLeft } from '../../utils/functions'
 import { FullscreenTextFitterComponent } from '../fullscreen-text-fitter/fullscreen-text-fitter.component'
+import { TextFitDirective } from '../../directives/text-fit.directive'
 
 @Component({
   selector: 'app-countdown-text',
   standalone: true,
-  imports: [CommonModule, FullscreenTextFitterComponent],
+  imports: [CommonModule, FullscreenTextFitterComponent, TextFitDirective],
   templateUrl: './countdown-text.component.html',
   styleUrl: './countdown-text.component.scss',
 })
